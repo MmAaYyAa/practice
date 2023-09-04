@@ -176,13 +176,329 @@
 // Результат, що очікується[0, 1, false, 2, undefined, '', 3, null] => [1, 2, 3]
 
 
-function clearFalsy(arr) {
-    const newArr = [];
-    for (const item of arr) {
-        if (item)  {
-            newArr.push(item)
-        }
-    }
-    return newArr;
+// function clearFalsy(arr) {
+//     const newArr = [];
+//     for (const item of arr) {
+//         if (item)  {
+//             newArr.push(item)
+//         }
+//     }
+//     return newArr;
+// }
+// console.log(clearFalsy([0, 1, false, 2, undefined, '', 3, null]));
+
+// ...spread
+// const a = { x: 1, y: 2, f: 10};
+// const b = { x: 5, a: -10 };
+// const c = {
+//     name: 555,
+//     ...a,
+//     ...b,
+//     f: 'Marsik',
+// };
+// console.log(c)
+
+
+// ------- деструктуризация -------
+    
+// const playlist = {
+//     name: 'My playlist',
+//     rating: 5,
+//     tracks: ['track-1', 'track-2', 'track-3'],
+//     trackCount: 3,
+// };
+
+// const{
+//     name,
+//     tracks,
+//     rating,
+//     trackCount,
+//     author = 'user',
+// } = playlist;
+// console.log(
+//     name,
+//     tracks,
+//     rating,
+//     trackCount,
+//     author)
+// Change code below this line
+
+
+// const atTheOldToad = {
+//   potions: [
+//     { name: "Speed potion", price: 460 },
+//     { name: "Dragon breath", price: 780 },
+//     { name: "Stone skin", price: 520 },
+//   ],
+//   // Change code below this line
+//   getPotions() {
+//     return this.potions;
+//   },
+//   addPotion(newPotion) {
+//     for(const potion of this.potions){
+//      if (potion.name === newPotion.name) {
+//       return `Error! Potion ${newPotion} is already in your inventory!`;
+//      }
+//     }
+//     this.potions.push(newPotion);
+//   },
+//     removePotion(potionName) {
+//         for (let i = 0; i < this.potions.length; i += 1){
+//        if (this.potion[i].name === potionName) {
+//        return this.potions.splice(i, 1);
+           
+//         }
+//        }
+//     return `Potion ${potionName} is not in inventory!`;
+     
+//     },
+//   updatePotionName(oldName, newName) {
+//     for(const potion of this.potion)
+
+//     if (potion.name = oldName ) {
+//       return potion.name = newName;
+//     }
+// return `Potion ${oldName} is not in inventory!`;
+//     },
+  
+//   // Change code above this line
+// };
+
+
+// // Напиши скрипт керування особистим кабінетом інтернет банку.
+// // Є об'єкт account, в якому потрібно реалізувати методи роботи із балансом та історією транзакцій
+
+// // Типів транзакцій всього два.Можна або покласти гроші на рахунок, або зняти гроші з рахунка
+
+// const Transaction = {
+//   DEPOSIT: 'deposit',
+//   WITHDRAW: 'withdraw',
+// }
+
+// // Кожна транзакція - це об'єкт із властивостями id, type, amount
+
+// const account = {
+//   //поточний баланс рахунку
+//   balance: 0,
+
+//   //історія транзакцій
+//   transactions: [],
+
+//   // Метод створює та повертає об'єкт транзакцій
+//   // Приймає суму та тип транзакції
+
+//   createTransaction(type, amount) {
+//     return {
+//       type,
+//       amount,
+//     }
+//   },
+
+//   // Метод відповідає за додавання суми до балансу.
+//   // Приймає суму транзакції
+//   // Викликає createTransaction для створення об'єкта транзакції
+//   // Після чого додає його до історії транзакцій
+
+//   deposit(amount) { },
+//   / Метод відповідає за зняття суми з балансу.
+//   // Приймає суму тразакцій.
+//   // Викликає createTransaction для створення об'єкта транзакції
+//   // Після чого додає його до історії транзакцій
+//   // Якщо amount більше за поточний баланс, виводимо повідомлення про те, що на рахунку недостатньо коштів
+
+//   withdraw(amount) {},
+
+//   // Метод, що повертає поточний баланс
+//   getBalance() {},
+
+//   // Метод шукає та повертає об'єкта транзакції по id
+//   getTransactionDetails(id) {},
+
+//   // Метод повертає кількість коштів певного типу тразакції зі всієї історії транзакції
+//   getTransactionType(type) {},
+// }
+
+// Напишіть дві функції
+// letMeSeeYourName(callback) - запитує ім"я користувача через prompt та викликає callback функцію
+// greet(name) - колбек, що приймає ім"я та виводить у консоль рядок "Привіт < name > "
+// Потрібно реалізувати перевірку, що prompt не порожній
+
+// const letMeSeeYourName = function (callback) {
+//   const name = prompt("ведіть ім`я: ");
+//   if (!name) {
+//     return
+//   }
+//   callback(name)
+// }
+// const greet = function (userName) {
+//   console.log(`Привіт ${userName}`)
+// }
+// letMeSeeYourName(greet);
+
+
+// Напишіть дві функції
+// makeProduct(name, price, callback) - приймає ім"я та ціну товару, а також callback
+// Функція створює об"єкт товару, додає йому унікальний ідентифікатор у властивість id та викликає callback,
+// передаючи йому створений об"єкт
+// showProduct(product)  - колбек, що приймає об"єкт продукта та виводить його у консоль
+
+// function makeProduct(name, price, callback) {
+//   const obj = {
+//     id: Date.now(),
+//     name,
+//     price,
+//   };
+
+//   callback(obj);
+// }
+
+// function showProduct(product) {
+//   console.log(product);
+// }
+
+// makeProduct('Яблуко', 30, showProduct);
+
+// Потрібно виконати рефакторинг коду так, щоб не потрібно було кожного разу передавати ім"я шефа
+// Напишіть функцію makeShef(shefName), яка повертає функцію makeDish(dish),
+//     яка пам"ятає ім"я шефа під час свого виклику
+// const makeDish = function (shefName, dish) {
+//   console.log(`${shefName} is cooking ${dish}`)
+// }
+
+// makeDish('Mango', 'apple pie')
+// makeDish('Poly', 'muffins')
+
+
+
+// const makeShef = function (shefName) {
+  
+//   return  function (dish) {
+//   console.log(`${shefName} is cooking ${dish}`)
+// }
+// }
+// const mango = makeShef('Mango');
+// mango('muffins');
+
+
+
+// / Напишіть функцію makeCounter, яка повертає іншу функцію,
+// //     яка рахує та виводить у консоль кількість своїх викликів
+
+// const makeCounter = () => {
+//   let counter = 0;
+
+//   return () => {
+//     console.log((counter += 1));
+//   };
+// };
+
+// const log = makeCounter();
+// log();
+// log();
+// log();
+// log();
+
+
+
+// Напиши клас Client, який створює об"єкт із властивостями login та email
+// оголоси приватні властивості #login #email, доступ до яких зроби через геттер та сеттер login email
+
+
+
+// class Client {
+//   #login;
+//   #email;
+//   constructor(email, login) {
+//     this.#email = email;
+//     this.#login = login;
+//   }
+
+//   get email() {
+//     console.log(this.#email);
+//   }
+
+//   set email(newEmail) {
+//     return (this.#email = newEmail);
+//   }
+
+//   get login() {
+//     console.log(this.#login);
+//   }
+
+//   set login(newLogin) {
+//     return (this.#login = newLogin);
+//   }
+// }
+
+// const obj = new Client("qwert@gmail.com", "qwer");
+// console.log(obj);
+
+// obj.email;
+// obj.login = "qweqwe";
+// obj.login;
+
+
+// Напиши клас Notes, який керує колекцієї заміток у властивості items
+// Замітка - це об"єкт із властивостями text та priority
+// Додай класу статичну властивість Priopity,
+//     в якому буде зберігатися об"єкт з пріоритетами
+//     Додай методи addNote(note), removeNote(text), updatePriority(text, newPriority)
+
+
+// class Notes {
+//   static priority = {
+//     high: 'high',
+//     low: 'low',
+//   };
+
+//   constructor() {
+//     this.items = [];
+//   }
+
+//   addNote(note) {
+//     this.items.push(note);
+//   }
+
+//   removeNote(text) {
+//     // const i = this.items.findIndex(item => item.text === text);
+//     // this.items.splice(i, 1);
+//     this.items = this.items.filter(item => item.text !== text);
+//   }
+
+//   updatePriority(text, newPriority) {
+//     // const i = this.items.findIndex(item => item.text === text);
+//     // return (this.items[i].priority = newPriority);
+
+//     this.items = this.items.map(item => {
+//       if (item.text === text) {
+//         item.priority = newPriority;
+//       }
+
+//       return item;
+//     })
+//   }
+// }
+// const obj = new Notes();
+// obj.addNote({ text: 'Hello!', priority: Notes.priority.high });
+// obj.addNote({ text: 'Goodbye!', priority: Notes.priority.low });
+// obj.addNote({ text: 'Food!', priority: Notes.priority.high });
+// obj.addNote({ text: 'Meat!', priority: Notes.priority.low });
+// console.log(obj);
+// obj.removeNote('Food!');
+// obj.updatePriority('Meat!', 'high')
+// console.log(obj);
+
+
+
+// Напишіть функцію для зберігання знижки.
+// Функція повертає іншу функцію, яка приймає суму покупки
+// та повертає фінальну суму зі збереженою знижкою
+
+const foo = function (discount) {
+  
+  return function (sum) {
+    return sum - (sum * discount/100)
+  }
 }
-console.log(clearFalsy([0, 1, false, 2, undefined, '', 3, null]));
+const n = foo(10);
+console.log(n(100));
